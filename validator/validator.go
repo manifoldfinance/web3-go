@@ -1,7 +1,7 @@
 package validator
 
 import (
-	"github.com/alethio/web3-go/types"
+	"github.com/tzapu/web3-go/types"
 )
 
 // Validator is intended for validating the logical integrity of JSONRPC responses coming from parity

@@ -7,8 +7,9 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/alethio/web3-go/ethrpc"
-	"github.com/alethio/web3-go/ethrpc/provider/httprpc"
+	"github.com/tzapu/web3-go/ethrpc"
+	"github.com/tzapu/web3-go/ethrpc/provider/httprpc"
+	"github.com/tzapu/web3-go/types"
 )
 
 type worker struct {
@@ -153,6 +154,19 @@ func main() {
 			log.Fatal("Eth failed to get balance: ", err)
 		}
 		log.Println(balance)
+	case "getLogs":
+		logs, err := w.eth.GetLogs(types.FilterObject{
+			FromBlock: args[1],
+			ToBlock:   args[2],
+			Address:   args[3],
+			Topics: []string{
+				args[4],
+			},
+		})
+		if err != nil {
+			log.Fatal("Eth failed to get balance: ", err)
+		}
+		log.Println(logs)
 	default:
 		log.Println("Command not implemented")
 	}

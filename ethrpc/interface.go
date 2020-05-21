@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"github.com/alethio/web3-go/types"
+	"github.com/tzapu/web3-go/types"
 )
 
 // ETHInterface defines the packages interface
@@ -24,6 +24,7 @@ type ETHInterface interface {
 	GetERC20Decimals(address string) (uint8, error)
 	GetFilterChanges(id string) (t []interface{}, err error)
 	GetLatestBlock() (b types.Block, err error)
+	GetLogs(filter types.FilterObject) ([]types.Log, error)
 	GetPeerCount() (peers int64, err error)
 	GetPendingFilterChanges(id string) (t []string, err error)
 	GetPendingTransactions() ([]types.Transaction, error)

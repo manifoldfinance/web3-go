@@ -9,13 +9,13 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/alethio/web3-go/strhelper"
-	"github.com/alethio/web3-go/types"
+	"github.com/tzapu/web3-go/strhelper"
+	"github.com/tzapu/web3-go/types"
 
-	"github.com/alethio/web3-go/etherr"
-	"github.com/alethio/web3-go/ethrpc/provider"
-	"github.com/alethio/web3-go/ethrpc/provider/httprpc"
-	"github.com/alethio/web3-go/ethrpc/provider/wsrpc"
+	"github.com/tzapu/web3-go/etherr"
+	"github.com/tzapu/web3-go/ethrpc/provider"
+	"github.com/tzapu/web3-go/ethrpc/provider/httprpc"
+	"github.com/tzapu/web3-go/ethrpc/provider/wsrpc"
 )
 
 // ETH server interaction
@@ -47,6 +47,13 @@ func (e *ETH) Stop() {
 func (e *ETH) GetLatestBlock() (b types.Block, err error) {
 	err = e.MakeRequest(&b, ETHGetBlockByNumber, "latest", true)
 	return
+}
+
+// GetLatestBlock with or without full transactions array
+func (e *ETH) GetLogs(filter types.FilterObject) ([]types.Log, error) {
+	var logs []types.Log
+	err := e.MakeRequest(&logs, ETHGetLogs, filter)
+	return logs, err
 }
 
 // GetBlockByNumber gets specified block with full transaction array

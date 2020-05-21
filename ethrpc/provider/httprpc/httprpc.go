@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/alethio/web3-go/etherr"
-	"github.com/alethio/web3-go/jsonrpc2"
+	"github.com/tzapu/web3-go/etherr"
+	"github.com/tzapu/web3-go/jsonrpc2"
 )
 
 const (
@@ -45,7 +45,7 @@ func (p *HTTPProvider) CallRaw(method string, params ...interface{}) ([]byte, er
 	return p.loader.Load(req)
 }
 
-// Call calls a RPC method and returns coresponding object
+// Call calls a RPC method and returns corresponding object
 func (p *HTTPProvider) Call(result interface{}, method string, params ...interface{}) error {
 	req := jsonrpc2.BuildRequest(method, params)
 	raw, err := p.loader.Load(req)

@@ -1,6 +1,6 @@
 package validator
 
-import "github.com/alethio/web3-go/types"
+import "github.com/tzapu/web3-go/types"
 
 func (v *Validator) LoadBlock(block types.Block) {
 	v.Block = block

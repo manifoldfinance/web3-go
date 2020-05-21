@@ -23,6 +23,7 @@ const (
 	ETHGetBlockTransactionCountByNumber = "eth_getBlockTransactionCountByNumber"
 	ETHGetCode                          = "eth_getCode"
 	ETHGetFilterChanges                 = "eth_getFilterChanges"
+	ETHGetLogs                          = "eth_getLogs"
 	ETHGetTransactionByHash             = "eth_getTransactionByHash"
 	ETHGetTransactionReceipt            = "eth_getTransactionReceipt"
 	ETHGetUncleByBlockHashAndIndex      = "eth_getUncleByBlockHashAndIndex"
