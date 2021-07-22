@@ -3,6 +3,7 @@ package jsonrpc2
 import (
 	"encoding/json"
 	"math/rand"
+	"reflect"
 	"strconv"
 )
 
@@ -30,6 +31,9 @@ func BuildRequest(method string, args interface{}) *JSONRPCRequest {
 
 // NewRequest creates a new RPC requests struct with all attributes required
 func NewRequest(method string, args interface{}, id string) *JSONRPCRequest {
+	if reflect.ValueOf(args).IsNil() {
+		args = make([]string, 0)
+	}
 	return &JSONRPCRequest{
 		Version: "2.0",
 		Method:  method,
