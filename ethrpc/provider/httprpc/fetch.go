@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/tzapu/web3-go/jsonrpc2"
 	"github.com/sirupsen/logrus"
+	"github.com/tzapu/web3-go/jsonrpc2"
 )
 
 func (p *HTTPProvider) fetchSingle(request *jsonrpc2.JSONRPCRequest) ([]byte, error) {

@@ -12,10 +12,10 @@ import (
 
 	"golang.org/x/time/rate"
 
-	"github.com/tzapu/web3-go/etherr"
-	"github.com/tzapu/web3-go/jsonrpc2"
 	"github.com/gorilla/websocket"
 	log "github.com/sirupsen/logrus"
+	"github.com/tzapu/web3-go/etherr"
+	"github.com/tzapu/web3-go/jsonrpc2"
 )
 
 const (
